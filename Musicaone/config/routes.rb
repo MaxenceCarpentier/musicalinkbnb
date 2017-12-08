@@ -6,6 +6,7 @@ devise_for :users,
 root 'pages#home'
 resources :users, only: [:show]
 resources :profs
+resources :photos
   # The priority is based upon ils server -b 0.0.0.0
   # order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

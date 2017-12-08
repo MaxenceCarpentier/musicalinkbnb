@@ -7,4 +7,5 @@ class Prof < ActiveRecord::Base
     validates :listing_name, presence: true, length: {maximum: 50}
     validates :price, numericality: {only_integer: false, greather_than: 1}
     validates :address, presence: true
+    has_many :photos
 end
