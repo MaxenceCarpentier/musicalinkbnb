@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  instrument: MyString
+  experience: 
+  g: MyString
+  style: MyString
+  influence: MyString
+  lesson_type: MyString
+  description: MyString
+  listing: MyString
+  _name: MyString
+  address: MyString
+  price: 1
+  active: 
+  lean: MyString
+  user_id: 
+
+two:
+  instrument: MyString
+  experience: 
+  g: MyString
+  style: MyString
+  influence: MyString
+  lesson_type: MyString
+  description: MyString
+  listing: MyString
+  _name: MyString
+  address: MyString
+  price: 1
+  active: 
+  lean: MyString
+  user_id: 

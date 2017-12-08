@@ -1,0 +1,120 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Devenez prof avec Musicalink !
+    </div>
+    <div class="panel-body">
+        <div class="container">
+            <%= render 'shared/errors' %>
+            <%= form_for @prof do |f| %>
+
+            <div class="row">
+                <div class="col-md-4 select">
+                    <div class="form-group">
+                        <label>Instrument</label>
+                        <%= f.select :instrument, [["Guitare","Guitare"],["Basse","Basse"],["Contrebasse","Contrebasse"],["Piano","Piano"],["Violoncelle","Violoncelle"],["Violon","Violon"],["Autres instruments à cordes","Autres instruments à cordes"],["Batterie","Batterie"],["Percussions","Percussions"],["Chant","Chant"],["Accordéon","Accordéon"],["Flûte","Flûte"],["Harmonica","Harmonica"],["Saxophone","Saxophone"],["Trompette","Trompette"],["Trombone","Trombone"],["Tuba","Tuba"],["Autres","Autres"]], id: "instrument",
+                        prompt: "Quel instrument voulez vous enseigner ?", class: "form-control" %>
+                 </div>
+                </div>
+
+                <div class="col-md-4 select">
+                    <div class="form-group">
+                        <label>Type de leçon</label>
+                        <%=f.select :lesson_type,[["Leçon individuelle", "Leçon individuelle"], ["Leçon groupée", "Leçon
+                        groupée"]],id: "lesson_type", prompt:"Sélectionnez votre type de leçon !", class:"form-control"
+                        %>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 select">
+                    <div class="form-group">
+                        <label>Donnez un nom à la leçon</label>
+                        <%= f.text_field :listing_name, placeholder: "Titre de l'annonce", class: "form-control" %>
+                    </div>
+                </div>
+                
+                                <div class="col-md-4 select">
+                    <div class="form-group">
+                        <label>Quelle est votre expérience</label>
+                        <%= f.text_field :experience, placeholder: "Expérience", class: "form-control" %>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Votre adresse</label>
+                    <%= f.text_field :address, placeholder: "Où est situé votre leçon ?", class: "form-control" %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Votre style musical</label>
+                    <%= f.text_field :style, placeholder: "Style musical", class: "form-control" %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Adresse</label>
+                    <%= f.text_field :address, placeholder: "Où est situé votre logement ?", class: "form-control" %>
+                </div>
+            </div>
+            
+                               <div class="form-group">
+                        <label>Vos influences</label>
+                        <%= f.text_area :influence, rows:4, placeholder: "Quels sont vos influences ?",class:
+                        "form-control" %>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Votre style musical</label>
+                        <%= f.text_area :style, rows:4, placeholder: "Quel est votre style musical ?",class:
+                        "form-control" %>
+                        
+                                        <div class="col-md-4 select">
+                    <div class="form-group">
+                        <label>Votre description</label>
+                        <%= f.text_area :description, rows:4, placeholder: "Décrivez vous, votre programme, votre
+                        ambiance de travail, etc ...",class: "form-control" %>
+                    </div>
+                </div>
+                    </div>
+
+
+            <div class="row">
+                <div class="col-md-4">
+ 
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Prix par nuit</label>
+                        <div class="input-group">
+                            <%= f.text_field :price, placeholder: "ex: 5€", class: "form-control" %>
+                            <div class="input-group-addon">€</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <%= f.check_box :active %> Annonce active
+                </div>
+            </div>
+
+            <div class="actions">
+                <%= f.submit "Je valide mon annonce", class: "btn btn-primary"%>
+            </div>
+            <% end %>
+
+        </div>
+    </div>
+</div>
