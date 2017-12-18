@@ -5,7 +5,7 @@
     <div class="panel-body">
         <div class="container">
             <%= render 'shared/errors' %>
-            <%= form_for @prof do |f| %>
+            <%= form_for @prof,html: {multipart: true} do |f| %>
 
             <div class="row">
                 <div class="col-md-4 select">
@@ -64,6 +64,22 @@
                     <%= f.text_field :address, placeholder: "Où est situé votre logement ?", class: "form-control" %>
                 </div>
             </div>
+            
+            <div class="row">
+ 
+       <div class="col-md-4">
+ 
+           <div class="form-group">
+ 
+                 <span class="btn btn-default btn-file">
+ 
+                 <i class = "fa fa-cloud-upload fa-lg"></i> Téléchargez vos photos !
+                 <%= file_field_tag "images[]", type: :file, multiple: true %>
+                 </span>
+           </div>
+       </div>
+ </div>
+ <font color="#555555" face="Arial, Helvetica Neue, Helvetica, Tahoma, sans-serif"></font><div id="photos"><%= render 'photos/list' %></div>
             
                                <div class="form-group">
                         <label>Vos influences</label>

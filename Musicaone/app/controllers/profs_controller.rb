@@ -25,7 +25,7 @@ class ProfsController < ApplicationController
                 @prof.photos.create(image: i)
 
             end
-
+            
         end
 
         @photos = @prof.photos
@@ -72,4 +72,3 @@ end
                    redirect_to root_path
               end
      end
-end
