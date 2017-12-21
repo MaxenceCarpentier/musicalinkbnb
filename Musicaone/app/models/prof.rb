@@ -1,5 +1,7 @@
 class Prof < ActiveRecord::Base
     belongs_to :user
+has_many :photos
+        
     validates :instrument, presence: true
     validates :experience, presence: true
     validates :lesson_type, presence: true
@@ -7,5 +9,4 @@ class Prof < ActiveRecord::Base
     validates :listing_name, presence: true, length: {maximum: 50}
     validates :price, numericality: {only_integer: false, greather_than: 1}
     validates :address, presence: true
-    has_many :photos
 end

@@ -12,25 +12,19 @@ class ProfsController < ApplicationController
     end
 
     def create
-        @prof = current_user.prof.build
+        @prof = current_user.prof.build(prof_params)
         if @prof.save
+            if params[:images]
+                params[:images].each do |i|
+                    @prof.photos.create(image: i)
+                end
+            end
+            @photos = @prof.photos
+
             redirect_to @prof, notice: "Votre annonce a été mise en ligne !"
         else
             render :new
         end
-        if params[:images]
-
-            params[:images].each do |i|
-
-                @prof.photos.create(image: i)
-
-            end
-            
-        end
-
-        @photos = @prof.photos
-        redirect_to edit_room_path(@prof), notice: "Votre leçon a été ajoutée !"
-
     end
 end
 
@@ -44,17 +38,18 @@ end
 
 def update
     if @prof.update(prof_params)
-        redirect_to @prof, notice: "Modification enregistrée !"
+        if params[:images]
+            params[:images].each do |i|
+                @prof.photos.create(image: i)
+            end
+        end
+        @photos = @prof.photos
+
+
+        redirect_to @prof, notice: "Votre leçon a été ajoutée !"
     else
         render :edit
     end
-    if params[:images]
-        params[:images].each do |i|
-            @prof.photos.create(image: i)
-        end
-    end
-
-    redirect_to edit_room_path(@room), notice: "Modification enregistrée..."
 end
 
 private
@@ -66,9 +61,9 @@ def prof_params
     params.require(:prof).permit(:instrument, :experience, :style, :influence, :lesson_type, :description, :listing_name, :address, :price, :active)
 end
 
-    def require_same_user
-              if current_user.id != @prof.user_id
-                   flash[:danger] = "Vous n'avez pas le droit de modifier cette page !"
-                   redirect_to root_path
-              end
-     end
+def require_same_user
+    if current_user.id != @prof.user_id
+        flash[:danger] = "Vous n'avez pas le droit de modifier cette page !"
+        redirect_to root_path
+    end
+end
